@@ -1,0 +1,19 @@
+#!/bin/bash
+cd "$(dirname "$0")"
+
+if [ -z "$1" ]; then
+    echo "input-file can't be empty!"
+    exit
+fi
+
+if [ ! -f $1 ]; then
+    echo "input-file '$1' not found!"
+    exit
+fi
+
+for i in {11..14}
+do
+    echo "$i"
+    scp $1 farmer@192.168.17.$i:$2
+done
+
