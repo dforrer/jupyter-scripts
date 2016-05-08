@@ -1,5 +1,4 @@
 #!/bin/bash
-cd "$(dirname "$0")"
 
 if [ -z "$1" ]; then
     echo "input-file can't be empty!"
@@ -13,7 +12,7 @@ fi
 
 for i in {11..14}
 do
-    echo "$i"
+    echo "scp $1 farmer@192.168.17.$i:$2"
     scp $1 farmer@192.168.17.$i:$2
 done
 
