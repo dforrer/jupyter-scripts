@@ -1,5 +1,7 @@
 !#/bin/bash
 
+# Run with '. startup-spark.sh' to set the paths in the current shell
+
 echo "Setting SPARK_HOME and PYTHONPATH"
 
 export SPARK_HOME=/home/farmer/spark
@@ -9,5 +11,5 @@ export PYTHONPATH
 
 echo "Starting Spark..."
 
-spark/sbin/start-all.sh
+~/spark/sbin/start-all.sh
 
