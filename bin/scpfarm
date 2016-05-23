@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "input-file can't be empty!"
+    exit
+fi
+
+if [ ! -f $1 ] && [ ! -d $1 ]; then
+    echo "input-file/directory '$1' not found!"
+    exit
+fi
+
+for i in {11..14}
+do
+    echo "=========================="
+    if [[ -d $1 ]]; then
+        echo "$1 is a directory"
+        echo "scp -r $1 farmer@192.168.17.$i:$2"
+        scp -r $1 farmer@192.168.17.$i:$2
+    elif [[ -f $1 ]]; then
+        echo "$1 is a file"
+        echo "scp $1 farmer@192.168.17.$i:$2"
+        scp $1 farmer@192.168.17.$i:$2
+    fi
+done
+
